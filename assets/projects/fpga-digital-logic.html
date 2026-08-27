@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FPGA Digital Logic | Nathan Ortiz</title>
+
+    <meta name="description"
+        content="FPGA digital logic project by Nathan Ortiz featuring a verified 1-bit full adder implemented and simulated in Intel/Altera Quartus Prime.">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="project-page-header">
+
+        <nav class="navbar project-navbar">
+            <a class="logo" href="../index.html">Nathan Ortiz</a>
+
+            <div class="nav-links">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <main class="case-study">
+
+        <section class="case-study-hero">
+
+            <a class="back-link" href="../index.html#projects">
+                ← Back to Projects
+            </a>
+
+            <p class="eyebrow">FPGA / DIGITAL LOGIC</p>
+
+            <h1>FPGA Digital Logic</h1>
+
+            <p class="case-study-intro">
+                A collection of FPGA-based digital logic designs implemented,
+                compiled, simulated, and verified using Intel/Altera Quartus Prime
+                and the Intel MAX 10 platform.
+            </p>
+
+            <div class="case-study-tags">
+                <span>FPGA</span>
+                <span>Quartus Prime</span>
+                <span>MAX 10</span>
+                <span>Digital Logic</span>
+                <span>Functional Simulation</span>
+            </div>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub Repository
+                </a>
+
+                <a class="button secondary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/1-bit-full-adder"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Source Files
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">OVERVIEW</p>
+                <h2>1-Bit Full Adder</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    The first completed design in this collection is a 1-bit full
+                    adder. The circuit performs binary addition on three one-bit
+                    inputs and produces a SUM output and a CARRY output.
+                </p>
+
+                <p>
+                    The original project was developed as part of digital-logic
+                    coursework using Quartus Prime Lite 18.1. For this portfolio,
+                    I recovered the original project files, reorganized the
+                    project, recompiled it in Quartus Prime Lite 25.1, reran the
+                    functional simulation, and documented the results.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">DESIGN</p>
+                <h2>Circuit Implementation</h2>
+            </div>
+
+            <p class="case-study-text">
+                The full adder was implemented using logic gates in the Quartus
+                Block Diagram/Schematic Editor. Inputs A and B represent the two
+                binary values being added, while C represents the carry-in from a
+                previous stage.
+            </p>
+
+            <figure class="case-study-figure">
+                <img
+                    src="../assets/projects/fpga/full-adder-schematic.png"
+                    alt="Quartus schematic of the 1-bit full adder">
+
+                <figcaption>
+                    1-bit full-adder schematic implemented in Quartus Prime.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">LOGIC</p>
+                <h2>Expected Behavior</h2>
+            </div>
+
+            <p class="case-study-text">
+                A three-input full adder has eight possible input combinations.
+                The expected SUM and CARRY outputs are shown below.
+            </p>
+
+            <div class="table-wrapper">
+
+                <table class="truth-table">
+
+                    <thead>
+                        <tr>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>SUM</th>
+                            <th>CARRY</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                        <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+                        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+                        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+                        <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+                        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">VERIFICATION</p>
+                <h2>Functional Simulation</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    Functional verification was performed using the Quartus
+                    Simulation Waveform Editor. The test waveform exercises all
+                    eight possible combinations of A, B, and C.
+                </p>
+
+                <p>
+                    The simulated SUM and CARRY signals matched the expected truth
+                    table for every test case.
+                </p>
+
+            </div>
+
+            <figure class="case-study-figure">
+                <img
+                    src="../assets/projects/fpga/full-adder-simulation.png"
+                    alt="Functional simulation waveform for the 1-bit full adder">
+
+                <figcaption>
+                    Functional simulation covering all eight possible input
+                    combinations.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">RESULTS</p>
+                <h2>Verified Operation</h2>
+            </div>
+
+            <div class="results-grid">
+
+                <div class="result-card">
+                    <strong>0</strong>
+                    <span>Compilation Errors</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>8 / 8</strong>
+                    <span>Input Cases Verified</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>100%</strong>
+                    <span>Expected Output Matches</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">TOOLS</p>
+                <h2>Hardware & Software</h2>
+            </div>
+
+            <div class="project-spec-grid">
+
+                <div class="project-spec">
+                    <span>Development Environment</span>
+                    <strong>Quartus Prime Lite</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Original Version</span>
+                    <strong>18.1</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Revalidated Version</span>
+                    <strong>25.1</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>FPGA Family</span>
+                    <strong>Intel MAX 10</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Target Device</span>
+                    <strong>10M50DAF484C7G</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Platform</span>
+                    <strong>DE10-Lite</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section case-study-footer-section">
+
+            <p class="eyebrow">SOURCE</p>
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                Project files, simulation inputs, screenshots, and detailed
+                reproduction instructions are available in the GitHub repository.
+            </p>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open GitHub Repository
+                </a>
+
+                <a class="button secondary"
+                    href="../index.html#projects">
+                    Back to Portfolio
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Nathan Ortiz</p>
+    </footer>
+
+</body>
+
+</html>
