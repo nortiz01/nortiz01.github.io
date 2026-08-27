@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>1-Bit Full Adder | Nathan Ortiz</title>
+    <title>4-Bit Full Adder | Nathan Ortiz</title>
 
     <meta name="description"
-        content="FPGA digital logic project by Nathan Ortiz featuring a verified 1-bit full adder implemented and simulated in Intel/Altera Quartus Prime.">
+        content="4-bit ripple-carry full adder project by Nathan Ortiz, implemented and functionally verified in Intel/Altera Quartus Prime using reusable 1-bit full-adder blocks.">
 
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="../favicon.png">
@@ -52,31 +52,34 @@
 
             <p class="eyebrow">FPGA / DIGITAL LOGIC</p>
 
-            <h1>1-Bit Full Adder</h1>
+            <h1>4-Bit Ripple-Carry Full Adder</h1>
 
             <p class="case-study-intro">
-                A 1-bit full adder implemented with digital logic gates and
-                functionally verified across all eight possible input combinations
-                using Intel/Altera Quartus Prime.
+                A 4-bit binary adder constructed from four reusable 1-bit
+                full-adder blocks and functionally verified in Intel/Altera
+                Quartus Prime.
             </p>
 
             <div class="case-study-tags">
                 <span>FPGA</span>
                 <span>Quartus Prime</span>
                 <span>MAX 10</span>
-                <span>Digital Logic</span>
+                <span>Ripple-Carry Adder</span>
                 <span>Functional Simulation</span>
             </div>
 
             <div class="case-study-actions">
 
-                <a class="button primary" href="https://github.com/nortiz01/fpga-digital-logic" target="_blank"
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic"
+                    target="_blank"
                     rel="noopener noreferrer">
                     GitHub Repository
                 </a>
 
                 <a class="button secondary"
-                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/1-bit-full-adder" target="_blank"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/4-bit-full-adder"
+                    target="_blank"
                     rel="noopener noreferrer">
                     View Source Files
                 </a>
@@ -90,23 +93,28 @@
 
             <div class="case-study-section-title">
                 <p class="eyebrow">OVERVIEW</p>
-                <h2>1-Bit Full Adder</h2>
+                <h2>4-Bit Binary Addition</h2>
             </div>
 
             <div class="case-study-text">
 
                 <p>
-                    The first completed design in this collection is a 1-bit full
-                    adder. The circuit performs binary addition on three one-bit
-                    inputs and produces a SUM output and a CARRY output.
+                    This project extends the previously implemented 1-bit full
+                    adder into a 4-bit ripple-carry architecture capable of
+                    adding two 4-bit binary values and an external carry-in.
                 </p>
 
                 <p>
-                    The original project was developed as part of digital-logic
-                    coursework using Quartus Prime Lite 18.1. For this portfolio,
-                    I recovered the original project files, reorganized the
-                    project, recompiled it in Quartus Prime Lite 25.1, reran the
-                    functional simulation, and documented the results.
+                    Four 1-bit full-adder blocks are connected in sequence.
+                    The carry output from each stage is passed into the carry
+                    input of the next stage, allowing carries to propagate
+                    across the complete 4-bit word.
+                </p>
+
+                <p>
+                    The original coursework project was recovered, reorganized,
+                    recompiled in Quartus Prime Lite 25.1, and functionally
+                    simulated again for portfolio verification.
                 </p>
 
             </div>
@@ -118,22 +126,32 @@
 
             <div class="case-study-section-title">
                 <p class="eyebrow">DESIGN</p>
-                <h2>Circuit Implementation</h2>
+                <h2>Ripple-Carry Architecture</h2>
             </div>
 
-            <p class="case-study-text">
-                The full adder was implemented using logic gates in the Quartus
-                Block Diagram/Schematic Editor. Inputs A and B represent the two
-                binary values being added, while C represents the carry-in from a
-                previous stage.
-            </p>
+            <div class="case-study-text">
+
+                <p>
+                    Inputs A0–A3 and B0–B3 represent the two 4-bit operands.
+                    C1 serves as the external carry-in.
+                </p>
+
+                <p>
+                    The least-significant stage computes S0 and passes its carry
+                    into the next full-adder stage. This process continues
+                    through all four stages, with S4 representing the final
+                    carry-out.
+                </p>
+
+            </div>
 
             <figure class="case-study-figure">
-                <img src="../assets/projects/fpga/full-adder-schematic.png"
-                    alt="Quartus schematic of the 1-bit full adder">
+                <img src="../assets/projects/fpga/4-bit-full-adder-schematic.png"
+                    alt="Quartus schematic of the 4-bit ripple-carry full adder">
 
                 <figcaption>
-                    1-bit full-adder schematic implemented in Quartus Prime.
+                    Four reusable 1-bit full-adder blocks connected in a
+                    ripple-carry configuration.
                 </figcaption>
             </figure>
 
@@ -143,14 +161,9 @@
         <section class="case-study-section">
 
             <div class="case-study-section-title">
-                <p class="eyebrow">LOGIC</p>
-                <h2>Expected Behavior</h2>
+                <p class="eyebrow">SIGNALS</p>
+                <h2>Inputs & Outputs</h2>
             </div>
-
-            <p class="case-study-text">
-                A three-input full adder has eight possible input combinations.
-                The expected SUM and CARRY outputs are shown below.
-            </p>
 
             <div class="table-wrapper">
 
@@ -158,70 +171,31 @@
 
                     <thead>
                         <tr>
-                            <th>A</th>
-                            <th>B</th>
-                            <th>C</th>
-                            <th>SUM</th>
-                            <th>CARRY</th>
+                            <th>Signal</th>
+                            <th>Purpose</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
+                            <td>A0–A3</td>
+                            <td>4-bit operand A</td>
                         </tr>
                         <tr>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
+                            <td>B0–B3</td>
+                            <td>4-bit operand B</td>
                         </tr>
                         <tr>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
+                            <td>C1</td>
+                            <td>External carry-in</td>
                         </tr>
                         <tr>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
+                            <td>S0–S3</td>
+                            <td>4-bit sum</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>S4</td>
+                            <td>Final carry-out</td>
                         </tr>
                     </tbody>
 
@@ -243,24 +217,35 @@
 
                 <p>
                     Functional verification was performed using the Quartus
-                    Simulation Waveform Editor. The test waveform exercises all
-                    eight possible combinations of A, B, and C.
+                    Simulation Waveform Editor with representative addition and
+                    carry-propagation test cases.
                 </p>
 
                 <p>
-                    The simulated SUM and CARRY signals matched the expected truth
-                    table for every test case.
+                    The simulation demonstrates correct behavior across both
+                    ordinary additions and cases that require propagation of
+                    carries through multiple stages.
+                </p>
+
+                <p>
+                    For example, with A = 1111, B = 1111, and carry-in = 0,
+                    the output is 11110, corresponding to decimal 30.
+                </p>
+
+                <p>
+                    When the carry-in is set to 1 for the same operands, the
+                    output becomes 11111, corresponding to decimal 31.
                 </p>
 
             </div>
 
             <figure class="case-study-figure">
-                <img src="../assets/projects/fpga/full-adder-simulation.png"
-                    alt="Functional simulation waveform for the 1-bit full adder">
+                <img src="../assets/projects/fpga/4-bit-full-adder-simulation.png"
+                    alt="Functional simulation waveform for the 4-bit ripple-carry full adder">
 
                 <figcaption>
-                    Functional simulation covering all eight possible input
-                    combinations.
+                    Functional simulation demonstrating correct 4-bit addition
+                    and carry propagation.
                 </figcaption>
             </figure>
 
@@ -282,13 +267,13 @@
                 </div>
 
                 <div class="result-card">
-                    <strong>8 / 8</strong>
-                    <span>Input Cases Verified</span>
+                    <strong>4</strong>
+                    <span>Full-Adder Stages</span>
                 </div>
 
                 <div class="result-card">
-                    <strong>100%</strong>
-                    <span>Expected Output Matches</span>
+                    <strong>5-bit</strong>
+                    <span>Maximum Output Width</span>
                 </div>
 
             </div>
@@ -311,11 +296,6 @@
                 </div>
 
                 <div class="project-spec">
-                    <span>Original Version</span>
-                    <strong>18.1</strong>
-                </div>
-
-                <div class="project-spec">
                     <span>Revalidated Version</span>
                     <strong>25.1</strong>
                 </div>
@@ -328,6 +308,11 @@
                 <div class="project-spec">
                     <span>Target Device</span>
                     <strong>10M50DAF484C7G</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Architecture</span>
+                    <strong>Ripple Carry</strong>
                 </div>
 
                 <div class="project-spec">
@@ -347,15 +332,18 @@
             <h2>Explore the Project</h2>
 
             <p>
-                Project files, simulation inputs, screenshots, and detailed
-                reproduction instructions are available in the GitHub repository.
+                Quartus project files, the simulation waveform, design
+                screenshots, and additional documentation are available in the
+                FPGA digital-logic GitHub repository.
             </p>
 
             <div class="case-study-actions">
 
-                <a class="button primary" href="https://github.com/nortiz01/fpga-digital-logic" target="_blank"
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/4-bit-full-adder"
+                    target="_blank"
                     rel="noopener noreferrer">
-                    Open GitHub Repository
+                    Open Project Files
                 </a>
 
                 <a class="button secondary" href="../index.html#projects">
