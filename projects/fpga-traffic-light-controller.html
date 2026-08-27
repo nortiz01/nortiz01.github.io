@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Two-Way Traffic Light Controller | Nathan Ortiz</title>
+
+    <meta name="description"
+        content="Two-way FPGA traffic light controller project by Nathan Ortiz, implemented with JK flip-flops and combinational logic and functionally verified in Quartus Prime.">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="apple-touch-icon" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="project-page-header">
+
+        <nav class="navbar project-navbar">
+
+            <a class="logo" href="../index.html">
+                Nathan Ortiz
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <div class="nav-links">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="case-study">
+
+        <section class="case-study-hero">
+
+            <a class="back-link" href="../index.html#projects">
+                ← Back to Projects
+            </a>
+
+            <p class="eyebrow">FPGA / SEQUENTIAL LOGIC</p>
+
+            <h1>Two-Way Traffic Light Controller</h1>
+
+            <p class="case-study-intro">
+                A sequential traffic-light controller implemented using
+                JK flip-flops, combinational logic, and a reusable
+                seven-segment decoder in Intel/Altera Quartus Prime.
+            </p>
+
+            <div class="case-study-tags">
+                <span>FPGA</span>
+                <span>Quartus Prime</span>
+                <span>Sequential Logic</span>
+                <span>JK Flip-Flops</span>
+                <span>Functional Simulation</span>
+            </div>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub Repository
+                </a>
+
+                <a class="button secondary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/Traffic-Light-Controller"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Source Files
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">OVERVIEW</p>
+                <h2>Sequential Traffic Control</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    This project implements a two-way traffic-light controller
+                    that manages red, yellow, and green signals for two
+                    intersecting directions.
+                </p>
+
+                <p>
+                    The controller uses JK flip-flops to store state information
+                    and combinational logic to determine state transitions and
+                    decode the corresponding traffic-light outputs.
+                </p>
+
+                <p>
+                    The recovered design was reconstructed in Quartus Prime Lite
+                    25.1, recompiled, and functionally simulated again for
+                    portfolio verification.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">DESIGN</p>
+                <h2>State Storage & Output Logic</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    Two JK flip-flops provide the sequential state storage for
+                    the controller. Their outputs feed combinational logic that
+                    generates the red, yellow, and green signals for both traffic
+                    directions.
+                </p>
+
+                <p>
+                    The controller also instantiates the reusable
+                    <code>HEX_7SegD</code> decoder block, demonstrating modular
+                    reuse between separate FPGA coursework projects.
+                </p>
+
+            </div>
+
+            <figure class="case-study-figure">
+                <img src="../assets/projects/fpga/traffic-light-schematic.png"
+                    alt="Quartus schematic of a two-way traffic light controller">
+
+                <figcaption>
+                    Sequential traffic-light controller implemented with JK
+                    flip-flops, combinational logic, and an integrated
+                    seven-segment decoder.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">SIGNALS</p>
+                <h2>Inputs & Outputs</h2>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="truth-table">
+
+                    <thead>
+                        <tr>
+                            <th>Signal</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>CLK</td>
+                            <td>System clock</td>
+                        </tr>
+                        <tr>
+                            <td>FA</td>
+                            <td>Direction A force / control input</td>
+                        </tr>
+                        <tr>
+                            <td>FB</td>
+                            <td>Direction B force / control input</td>
+                        </tr>
+                        <tr>
+                            <td>SA</td>
+                            <td>Direction A sensor / request input</td>
+                        </tr>
+                        <tr>
+                            <td>SB</td>
+                            <td>Direction B sensor / request input</td>
+                        </tr>
+                        <tr>
+                            <td>RA / YA / GA</td>
+                            <td>Direction A red, yellow, and green outputs</td>
+                        </tr>
+                        <tr>
+                            <td>RB / YB / GB</td>
+                            <td>Direction B red, yellow, and green outputs</td>
+                        </tr>
+                        <tr>
+                            <td>SegA–SegG</td>
+                            <td>Seven-segment display outputs</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">VERIFICATION</p>
+                <h2>Functional Simulation</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    A new Quartus Simulation Waveform File was created to
+                    functionally verify the reconstructed controller.
+                </p>
+
+                <p>
+                    Representative sensor and force input combinations were
+                    applied while the design operated from a repeating clock.
+                </p>
+
+                <p>
+                    The resulting waveform demonstrates the major traffic-light
+                    states for both directions, including A-green/B-red,
+                    A-yellow/B-red, A-red/B-green, and A-red/B-yellow.
+                </p>
+
+                <p>
+                    Both yellow transition outputs, <code>YA</code> and
+                    <code>YB</code>, were observed during the simulation.
+                </p>
+
+            </div>
+
+            <figure class="case-study-figure">
+                <img src="../assets/projects/fpga/traffic-light-simulation.png"
+                    alt="Functional simulation waveform for the two-way traffic light controller">
+
+                <figcaption>
+                    Functional simulation demonstrating red, yellow, and green
+                    state transitions for both traffic directions.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">RESULTS</p>
+                <h2>Verified Operation</h2>
+            </div>
+
+            <div class="results-grid">
+
+                <div class="result-card">
+                    <strong>0</strong>
+                    <span>Compilation Errors</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>2</strong>
+                    <span>Traffic Directions</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>6</strong>
+                    <span>Traffic-Light Outputs</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">TOOLS</p>
+                <h2>Hardware & Software</h2>
+            </div>
+
+            <div class="project-spec-grid">
+
+                <div class="project-spec">
+                    <span>Development Environment</span>
+                    <strong>Quartus Prime Lite</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Revalidated Version</span>
+                    <strong>25.1</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>FPGA Family</span>
+                    <strong>Intel MAX 10</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Target Device</span>
+                    <strong>10M50DAF484C7G</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>State Storage</span>
+                    <strong>JK Flip-Flops</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Platform</span>
+                    <strong>DE10-Lite</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">RECONSTRUCTION</p>
+                <h2>Recovering the Original Design</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    Only the original traffic-light schematic and archived
+                    screenshots were initially available.
+                </p>
+
+                <p>
+                    A new Quartus project was created around the recovered
+                    schematic, and the required <code>HEX_7SegD</code>
+                    dependency was restored from the separately recovered
+                    seven-segment decoder project.
+                </p>
+
+                <p>
+                    The reconstructed project successfully completed full
+                    compilation with zero errors and was then functionally
+                    simulated using a newly created waveform testbench.
+                </p>
+
+                <p>
+                    Timing verification is not claimed because the reconstructed
+                    project does not contain the original timing constraints.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section case-study-footer-section">
+
+            <p class="eyebrow">SOURCE</p>
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                Quartus source files, the reconstructed waveform testbench,
+                screenshots, and documentation are available in the FPGA
+                digital-logic GitHub repository.
+            </p>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/Traffic-Light-Controller"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open Project Files
+                </a>
+
+                <a class="button secondary" href="../index.html#projects">
+                    Back to Portfolio
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Nathan Ortiz</p>
+    </footer>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
