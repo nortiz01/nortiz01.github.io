@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NAND-Based D Flip-Flop | Nathan Ortiz</title>
+
+    <meta name="description"
+        content="NAND-based D flip-flop project by Nathan Ortiz, implemented and functionally verified in Intel/Altera Quartus Prime.">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="apple-touch-icon" href="../favicon.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="project-page-header">
+
+        <nav class="navbar project-navbar">
+
+            <a class="logo" href="../index.html">
+                Nathan Ortiz
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <div class="nav-links">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="case-study">
+
+        <section class="case-study-hero">
+
+            <a class="back-link" href="../index.html#projects">
+                ← Back to Projects
+            </a>
+
+            <p class="eyebrow">FPGA / SEQUENTIAL LOGIC</p>
+
+            <h1>NAND-Based D Flip-Flop</h1>
+
+            <p class="case-study-intro">
+                A clocked storage element implemented using interconnected NAND
+                gates and functionally verified in Intel/Altera Quartus Prime.
+            </p>
+
+            <div class="case-study-tags">
+                <span>FPGA</span>
+                <span>Quartus Prime</span>
+                <span>MAX 10</span>
+                <span>Sequential Logic</span>
+                <span>Functional Simulation</span>
+            </div>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub Repository
+                </a>
+
+                <a class="button secondary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/DFF"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View Source Files
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">OVERVIEW</p>
+                <h2>Clocked Data Storage</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    This project implements a D flip-flop using NAND-gate logic.
+                    The circuit stores one bit of information and updates its
+                    output according to the value present on the D input at the
+                    active clock edge.
+                </p>
+
+                <p>
+                    The design provides both Q and Qn outputs, where Qn remains
+                    the logical complement of Q.
+                </p>
+
+                <p>
+                    The original coursework project was recovered, reorganized,
+                    recompiled in Quartus Prime Lite 25.1, and functionally
+                    simulated again for portfolio verification.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">DESIGN</p>
+                <h2>NAND-Gate Implementation</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    The circuit is constructed from interconnected NAND gates
+                    that form the clocked gating and feedback network required
+                    for bistable storage.
+                </p>
+
+                <p>
+                    D is the data input and Ck is the clock input. The output
+                    stage provides complementary Q and Qn signals.
+                </p>
+
+            </div>
+
+            <figure class="case-study-figure">
+                <img src="../assets/projects/fpga/dff-schematic.png"
+                    alt="Quartus schematic of a NAND-based D flip-flop">
+
+                <figcaption>
+                    NAND-based D flip-flop implemented in the Quartus
+                    Block Diagram/Schematic Editor.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">SIGNALS</p>
+                <h2>Inputs & Outputs</h2>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="truth-table">
+
+                    <thead>
+                        <tr>
+                            <th>Signal</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>D</td>
+                            <td>Data input</td>
+                        </tr>
+                        <tr>
+                            <td>Ck</td>
+                            <td>Clock input</td>
+                        </tr>
+                        <tr>
+                            <td>Q</td>
+                            <td>Stored output</td>
+                        </tr>
+                        <tr>
+                            <td>Qn</td>
+                            <td>Complementary output</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">VERIFICATION</p>
+                <h2>Functional Simulation</h2>
+            </div>
+
+            <div class="case-study-text">
+
+                <p>
+                    Functional verification was performed using the Quartus
+                    Simulation Waveform Editor with representative clock and
+                    data transitions.
+                </p>
+
+                <p>
+                    The simulation confirms that Q captures the value of D on
+                    the active clock edge and holds that state between clock
+                    events.
+                </p>
+
+                <p>
+                    Qn remains the complement of Q throughout the verified
+                    operation. The initial output state appears undefined until
+                    the first valid clock event because the design does not
+                    include a reset input.
+                </p>
+
+            </div>
+
+            <figure class="case-study-figure">
+                <img src="../assets/projects/fpga/dff-simulation.png"
+                    alt="Functional simulation waveform for the NAND-based D flip-flop">
+
+                <figcaption>
+                    Functional simulation demonstrating clocked data capture and
+                    complementary Q / Qn outputs.
+                </figcaption>
+            </figure>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">RESULTS</p>
+                <h2>Verified Operation</h2>
+            </div>
+
+            <div class="results-grid">
+
+                <div class="result-card">
+                    <strong>0</strong>
+                    <span>Compilation Errors</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>1-bit</strong>
+                    <span>Stored State</span>
+                </div>
+
+                <div class="result-card">
+                    <strong>Q / Qn</strong>
+                    <span>Complementary Outputs</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section">
+
+            <div class="case-study-section-title">
+                <p class="eyebrow">TOOLS</p>
+                <h2>Hardware & Software</h2>
+            </div>
+
+            <div class="project-spec-grid">
+
+                <div class="project-spec">
+                    <span>Development Environment</span>
+                    <strong>Quartus Prime Lite</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Revalidated Version</span>
+                    <strong>25.1</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>FPGA Family</span>
+                    <strong>Intel MAX 10</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Target Device</span>
+                    <strong>10M50DAF484C7G</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Logic Type</span>
+                    <strong>Sequential Logic</strong>
+                </div>
+
+                <div class="project-spec">
+                    <span>Platform</span>
+                    <strong>DE10-Lite</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="case-study-section case-study-footer-section">
+
+            <p class="eyebrow">SOURCE</p>
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                Quartus project files, the simulation waveform, design
+                screenshots, and project documentation are available in the
+                FPGA digital-logic GitHub repository.
+            </p>
+
+            <div class="case-study-actions">
+
+                <a class="button primary"
+                    href="https://github.com/nortiz01/fpga-digital-logic/tree/main/DFF"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Open Project Files
+                </a>
+
+                <a class="button secondary" href="../index.html#projects">
+                    Back to Portfolio
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 Nathan Ortiz</p>
+    </footer>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
